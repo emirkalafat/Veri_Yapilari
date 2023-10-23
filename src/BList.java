@@ -7,9 +7,64 @@ public class BList {
         size++;
     }
 
-    // motodun adı: addKthPosition(data,position);
-    // motodun adı: removeKthOsition(position) return data;
-    // ? removeFirst
+    void addKthPosition(int data, int position) {
+        Node temp = this.head;
+        Node newNode = new Node(data);
+        for (int i = 0; i < position - 1; i++) {
+            if (temp.next == null) {
+                System.out.println("Girdiğiniz pozisyon listede yok.");
+                return;
+            }
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+
+    void addKthPosition2(int data, int position) {
+        Node temp = this.head;
+        Node newNode = new Node(data);
+        for (int i = 0; i < position - 1; i++) {
+            if (temp.next == null) {
+                newNode.next = null;
+                temp.next = newNode;
+                System.out.println("Girdiğiniz pozisyon listeyi aşıyor. Son elemana eklendi.");
+                return;
+            }
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    Node removeKthPosition(int position) {
+        Node temp = this.head;
+        for (int i = 0; i < position - 1; i++) {
+            if (temp.next == null) {
+                System.out.println("Girdiğiniz pozisyon listede yok.");
+                return new Node(0);
+            }
+            temp = temp.next;
+        }
+        Node removed = temp.next;
+        temp.next = temp.next.next;
+        return removed;
+    }
+
+    Node removeKthPosition2(int position) {
+        Node temp = this.head;
+        for (int i = 0; i < position - 1; i++) {
+            if (temp.next.next == null) {
+                System.out.println("Girdiğiniz pozisyon listeyi aşıyor. Son eleman silindi.");
+                break;
+            }
+            temp = temp.next;
+        }
+        Node removed = temp.next;
+        temp.next = temp.next.next;
+        return removed;
+    }
 
     void addFirst(int data) {
         Node newNode = new Node(data);
