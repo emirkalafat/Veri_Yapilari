@@ -1,10 +1,11 @@
-public class Node {
-    int data;
-    Node next;
+package lab2;
 
-    public Node(int data) {
+public class Node<T> {
+    Node next;
+    T data;
+
+    Node(T data) {
         this.data = data;
         this.next = null;
     }
-
 }

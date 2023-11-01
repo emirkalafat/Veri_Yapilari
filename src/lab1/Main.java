@@ -1,5 +1,8 @@
+package lab1;
+
 public class Main {
     public static void main(String[] args) {
+
         BList list1 = new BList(12);
         list1.printList();
         list1.printSize();

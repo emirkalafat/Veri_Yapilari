@@ -1,3 +1,5 @@
+package lab1;
+
 public class BList {
     Node head = null;
     private int size = 0;
